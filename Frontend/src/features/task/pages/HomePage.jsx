@@ -1,9 +1,10 @@
-import { useEffect} from "react";
-import { useTask } from "../hooks/useTask.js";
-import {Link, useNavigate} from 'react-router-dom';
+import { useEffect } from "react";
+import { useTask } from "../hooks/useTask";
+import { Link, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 
-const TaskPage=()=>{
+
+const HomePage=()=>{
     const {handleFetchTask,handleDeleteTask}= useTask();
     const tasks= useSelector((state)=> state.tasks.tasks);
     const navigate= useNavigate();
@@ -11,7 +12,7 @@ const TaskPage=()=>{
     useEffect(()=>{
         handleFetchTask();
     },[]);
-    
+
     const handleEdit= (id)=>{
         navigate(`/tasks/${id}`);
     };
@@ -30,9 +31,8 @@ const TaskPage=()=>{
                         </div>
                         <div>
                             <button onClick={()=> handleEdit(task._id)} className="bg-green-500 text-white px-3 py-1 rounded mr-2">Edit</button>
-                            
-                            <button onClick
-                            ={()=> handleDeleteTask(task._id)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
+
+                            <button onClick={()=> handleDeleteTask(task._id)} className="bg-red-500 text-white px-3 py-1 rounded">Delete</button>
                         </div>
                     </li>
                 ))}
@@ -41,4 +41,4 @@ const TaskPage=()=>{
     );
 };
 
-export default TaskPage;
+export default HomePage;

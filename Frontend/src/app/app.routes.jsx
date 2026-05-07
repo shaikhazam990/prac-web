@@ -1,6 +1,10 @@
-import {creataBrowserRouter} from 'react-router-dom';
+import {createBrowserRouter} from 'react-router-dom';
+import HomePage from '../features/task/pages/HomePage.jsx';
+import TaskPage from '../features/task/pages/TaskPage.jsx';
+import TaskDetailsPage from '../features/task/pages/TaskDetailsPage.jsx';
+import CreatePage from '../features/task/pages/createPage.jsx';
 
-export const router= creataBrowserRouter([
+const router= createBrowserRouter([
     {
         path:'/',
         element:<HomePage/>
@@ -11,7 +15,12 @@ export const router= creataBrowserRouter([
     },
     {
         path:'/tasks/:id',
-        element:<TaskDetailPage/>
+        element:<TaskDetailsPage/>
+    },
+    {
+        path:'/tasks/create',
+        element:<CreatePage/>
     }
 ])
 
+export default router;

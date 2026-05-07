@@ -1,13 +1,15 @@
-import './app.css'
-import AppRoutes from './app.routes.jsx'
+import { Provider } from "react-redux";
+import { store } from "./app.store";
+import { RouterProvider } from "react-router-dom";
+import router from "./app.routes";
+import "./App.css";
 
-const App = () => {
+function App() {
   return (
-    <div className="app-container">
-      <h1>Task Management App</h1>
-      <AppRoutes />
-    </div>
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   );
-};
+}
 
-export default App; 
+export default App;

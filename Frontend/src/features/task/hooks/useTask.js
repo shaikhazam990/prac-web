@@ -1,14 +1,14 @@
 import {fetchtaskstart,fetchtasksucc,fetchtaskfail} from '../state/task.slice.js';
-import {getalltasks,createTask,getTaskById,updateTask,deleteTask} from '../api/task.api.js';
+import {getAllTasks,createTask,getTaskById,updateTask,deleteTask} from '../services/task.api.js';
 import { useDispatch } from 'react-redux';
 
-const useTask=()=>{
+export const useTask=()=>{
     const dispatch= useDispatch();
 
     const handleFetchTask= async()=>{
         dispatch(fetchtaskstart());
         try{
-            const response= await getalltasks();
+            const response= await getAllTasks();
             dispatch(fetchtasksucc(response.data.tasks));
         }
         catch(error){
@@ -66,7 +66,7 @@ const useTask=()=>{
         };
 };
 
-export default useTask;
+
 
 
 

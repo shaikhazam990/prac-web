@@ -8,5 +8,10 @@ router.get('/get/tasks', taskController.getalltasks);
 
 router.get('/get/tasks/:id', taskController.gettaskbyid);
 
+router.put('/update/tasks/:id', taskController.updatetask);
+
+router.delete('/delete/tasks/:id', taskController.deletetask);
+
+
 export default router;
 

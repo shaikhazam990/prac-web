@@ -6,5 +6,7 @@ router.post('/create/tasks', taskController.createTask);
 
 router.get('/get/tasks', taskController.getalltasks);
 
+router.get('/get/tasks/:id', taskController.gettaskbyid);
+
 export default router;
 

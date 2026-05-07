@@ -1,10 +1,17 @@
-const AppRoutes = () => {
-  return (
-    <Routes>
-      <Route path="/" element={<TaskList />} />
-      <Route path="/tasks/:id" element={<TaskDetail />} />
-    </Routes>
-  );
-};
+import {creataBrowserRouter} from 'react-router-dom';
 
-export default AppRoutes;
+export const router= creataBrowserRouter([
+    {
+        path:'/',
+        element:<HomePage/>
+    },
+    {
+        path:'/tasks',
+        element:<TaskPage/>
+    },
+    {
+        path:'/tasks/:id',
+        element:<TaskDetailPage/>
+    }
+])
+

@@ -1,18 +1,13 @@
-import { useEffect,useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import {useState } from "react";
+import { Link } from "react-router-dom";
 import useTask from "../hook/useTask.js";
 
 const Home = () => {
     const {tasks,loading,error,addTask,deleteTask}=useTask();
     const [newTaskTitle,setNewTaskTitle]=useState("");
-    const navigate=useNavigate();
-    const user=useSelector(state=>state.auth.user);
-    useEffect(() => {
-        if (!user) {
-            navigate("/login");
-        }
-    }, [user, navigate]);
+
+
+
     const handleAddTask=()=>{
         if(newTaskTitle.trim()){
             addTask({title:newTaskTitle});
